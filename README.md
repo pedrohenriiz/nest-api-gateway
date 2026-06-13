@@ -35,31 +35,48 @@ O principal objetivo deste projeto foi compreender alguns dos principais conceit
 
 ### Variáveis de ambiente
 
-Crie um arquivo .env dentro de gateway e auth-service e configure com base no respectivo arquivo .env.example.
+Crie um arquivo `.env` dentro de `gateway` e `auth-service` e configure com base no respectivo arquivo `.env.example`.
 
-### Aprendizados
+### Como rodar o projeto
 
-Durante o desenvolvimento foram explorados conceitos importantes de arquitetura de software:
+Como este projeto é composto por múltiplos serviços, você precisará inicializar cada um deles para que o ecossistema funcione corretamente. Siga os passos abaixo:
 
-- API Gateway Pattern
-- Reverse Proxy
-- Dependency Injection
-- Guards
-- Interceptors
-- Exception Filters
-- Modularização
-- JWT Authentication
-- Comunicação entre microsserviços
-- Observabilidade básica
+#### 1. Pré-requisitos
 
-O projeto serve como base para futuras evoluções, como:
+Certifique-se de ter o [Node.js](https://nodejs.org/) instalado na sua máquina (recomendado versão 22 ou superior) e um gerenciador de pacotes (npm, yarn ou pnpm).
 
-- Refresh Tokens
-- Role Based Access Control (RBAC)
-- Rate Limiting
-- Distributed Tracing
-- OpenTelemetry
-- Service Discovery
-- Mensageria com RabbitMQ ou Kafka
-- Circuit Breaker Pattern
-- Cache Distribuído
+#### 2. Instalação das dependências
+
+Você precisa instalar as dependências de cada um dos 3 serviços. Entre na pasta de cada projeto e execute o comando de instalação:
+
+```bash
+# Instalando no Gateway
+cd gateway && npm install && cd ..
+
+# Instalando no Auth Service
+cd auth-service && npm install && cd ..
+
+# Instalando no User Service
+cd user-service && npm install && cd ..
+```
+
+#### 3. Configuração do ambiente
+
+Antes de rodar, certifique-se de ter configurado os arquivos .env corretamente dentro da pasta gateway e auth-service.
+
+#### 4. Inicializando os serviços
+
+Para rodar o ecossistema completo, abra terminais separados para cada serviço e execute o comando de inicialização em cada um deles:
+
+```bash
+# No terminal do Gateway:
+cd gateway && npm run start:dev
+
+# No terminal do Auth Service:
+cd auth-service && npm run start:dev
+
+# No terminal do User Service:
+cd user-service && npm run start:dev
+```
+
+Uma vez que todos os serviços estejam de pé, o Gateway estará pronto para receber as requisições e roteá-las dinamicamente!
